@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manar Elhady Store | منار الهادي ستور</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="spinner"></div>
+    <p data-i18n="loading">جاري التحميل...</p>
+  </div>
+
+  <!-- Top Announcement Welcome Bar -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-content">
+      <span class="welcome-badge" data-i18n="welcome_msg">أهلاً بيك في Manar Store 🌿</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="container header-content">
+      <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+
+      <a href="#" class="logo-link" id="logo-link" aria-label="Manar Elhady Store">
+        <img src="/assets/logo.jpg" alt="Manar Elhady Store" class="logo-img">
+      </a>
+
+      <nav id="main-nav" class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active" data-i18n="nav_home">الرئيسية</a></li>
+          <li><a href="#products-section" class="nav-link" data-i18n="nav_all" data-category="all">الكل</a></li>
+          <li><a href="#products-section" class="nav-link" data-i18n="nav_hair" data-category="hair">الشعر</a></li>
+          <li><a href="#products-section" class="nav-link" data-i18n="nav_skin" data-category="skin">البشرة</a></li>
+          <li><a href="#products-section" class="nav-link" data-i18n="nav_body" data-category="body">الجسم</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-controls">
+        <button id="lang-switch" class="btn-lang-pill" title="Change Language / تغيير اللغة">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="globe-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span class="lang-text" id="lang-text">EN</span>
+        </button>
+
+        <button id="cart-toggle" class="icon-btn cart-toggle" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pattern-bg"></div>
+      <div class="container hero-content">
+        <div class="hero-tag">
+          <span class="hero-tag-icon">✨</span>
+          <span>100% منتجات طبيعية وعناية أصلية</span>
+        </div>
+        <h1 class="hero-title" data-i18n="hero_title">جمالك الطبيعي يبدأ من هنا</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">منتجات طبيعية أصيلة للشعر والبشرة والجسم</p>
+        <button class="btn btn-primary btn-large hero-cta-btn" id="hero-shop-btn" data-i18n="hero_cta">تسوقي الآن</button>
+      </div>
+    </section>
+
+    <!-- Organic Botanical Categories Section -->
+    <section class="organic-categories-section container">
+      <div class="section-header">
+        <span class="sub-heading">مجموعات العناية الطبيعية</span>
+        <h2 class="section-heading" data-i18n="footer_categories">الفئات</h2>
+        <div class="section-divider-leaf">
+          <span>🌿</span>
+        </div>
+      </div>
+
+      <div class="organic-cards-grid">
+        <!-- Card 1: Hair (الشعر) -->
+        <div class="organic-category-card hair-card" data-category="hair">
+          <div class="organic-shape-backdrop"></div>
+          <div class="card-inner-content">
+            <div class="organic-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                <path d="M12 22.7v-10"></path>
+                <path d="M12 12.7c1.5-1.5 3-1.5 4.5 0"></path>
+                <path d="M7.5 15.7c1.5-1.5 3-1.5 4.5 0"></path>
+              </svg>
+            </div>
+            <h3 class="category-name" data-i18n="cat_hair">الشعر</h3>
+            <p class="category-tagline">زيوت طبيعية لإنبات وتكثيف وإطالة الشعر</p>
+            <span class="explore-pill">تصفح المجموعة ←</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Skin (البشرة) -->
+        <div class="organic-category-card skin-card" data-category="skin">
+          <div class="organic-shape-backdrop"></div>
+          <div class="card-inner-content">
+            <div class="organic-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 0 0-7.07 17.07l.07.07A10 10 0 1 0 12 2z"></path>
+                <path d="M12 6v6l4 2"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="category-name" data-i18n="cat_skin">البشرة</h3>
+            <p class="category-tagline">لبان الذكر والنيلة الزرقاء لتفتيح ونضارة الوجه</p>
+            <span class="explore-pill">تصفح المجموعة ←</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Body (الجسم) -->
+        <div class="organic-category-card body-card" data-category="body">
+          <div class="organic-shape-backdrop"></div>
+          <div class="card-inner-content">
+            <div class="organic-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12h20M2 12a10 10 0 0 0 20 0M2 12a10 10 0 0 1 20 0"></path>
+                <path d="M6 12c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
+                <path d="M9 12a3 3 0 0 1 6 0"></path>
+              </svg>
+            </div>
+            <h3 class="category-name" data-i18n="cat_body">الجسم</h3>
+            <p class="category-tagline">الحمام المغربي، الطمي الأصيل، والدلكة السودانية</p>
+            <span class="explore-pill">تصفح المجموعة ←</span>
+          </div>
+        </div>
+
+        <!-- Card 4: All (الكل) -->
+        <div class="organic-category-card all-card active" data-category="all">
+          <div class="organic-shape-backdrop"></div>
+          <div class="card-inner-content">
+            <div class="organic-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+              </svg>
+            </div>
+            <h3 class="category-name" data-i18n="cat_all">الكل</h3>
+            <p class="category-tagline">استكشفي جميع منتجات منار ستور الطبيعية</p>
+            <span class="explore-pill">عرض الكل ←</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Grid Section -->
+    <section id="products-section" class="products-section container">
+      <div class="products-header-bar">
+        <div class="section-title-wrap">
+          <h2 class="section-title" data-i18n="products_title">منتجاتنا</h2>
+          <p class="section-subtitle">اختيارات نقية وموثوقة لعنايتك اليومية</p>
+        </div>
+
+        <div class="category-tabs" id="category-tabs">
+          <button class="tab-btn active" data-category="all" data-i18n="cat_all">الكل</button>
+          <button class="tab-btn" data-category="hair" data-i18n="cat_hair">الشعر</button>
+          <button class="tab-btn" data-category="skin" data-i18n="cat_skin">البشرة</button>
+          <button class="tab-btn" data-category="body" data-i18n="cat_body">الجسم</button>
+        </div>
+      </div>
+
+      <div id="products-grid" class="products-grid">
+        <!-- Products injected via JS -->
+      </div>
+      <div id="no-products-msg" class="no-products" style="display: none;" data-i18n="no_products">
+        لا توجد منتجات في هذه الفئة
+      </div>
+    </section>
+  </main>
+
+  <!-- Checkout Section -->
+  <main id="checkout-section" class="checkout-section container" style="display: none;">
+    <h2 class="section-title" data-i18n="checkout_title">إتمام الطلب</h2>
+    <div class="checkout-grid">
+      <div class="checkout-form-container">
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-group">
+            <label for="customer_name" data-i18n="customer_name">الاسم الكامل</label>
+            <input type="text" id="customer_name" name="customer_name" required data-i18n-attr="placeholder:customer_name">
+          </div>
+          <div class="form-group">
+            <label for="phone" data-i18n="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="phone" required data-i18n-attr="placeholder:phone">
+          </div>
+          <div class="form-group">
+            <label for="address" data-i18n="address">العنوان الكامل</label>
+            <textarea id="address" name="address" rows="3" required data-i18n-attr="placeholder:address"></textarea>
+          </div>
+          <div class="payment-info">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <span data-i18n="cash_on_delivery">الدفع عند الاستلام (Cash on Delivery)</span>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="place_order">تأكيد الطلب</button>
+            <button type="button" id="back-to-cart-btn" class="btn btn-outline btn-block" data-i18n="back_to_cart">العودة للسلة</button>
+          </div>
+        </form>
+      </div>
+      <div class="checkout-summary">
+        <h3 data-i18n="order_summary">ملخص الطلب</h3>
+        <div id="checkout-items" class="checkout-items"></div>
+        <div class="cart-summary-totals">
+          <div class="summary-row">
+            <span data-i18n="subtotal">المجموع الفرعي</span>
+            <span id="checkout-subtotal">0 ج</span>
+          </div>
+          <div class="summary-row discount-row" id="checkout-discount-row" style="display:none;">
+            <span data-i18n="discount">الخصم</span>
+            <span id="checkout-discount">0 ج</span>
+          </div>
+          <div class="summary-row total-row">
+            <span data-i18n="total">الإجمالي</span>
+            <span id="checkout-total">0 ج</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Confirmation Section -->
+  <main id="confirmation-section" class="confirmation-section container" style="display: none;">
+    <div class="confirmation-box">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" width="56" height="56" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </div>
+      <h2 data-i18n="order_confirmed_title">تم استلام طلبك!</h2>
+      <p data-i18n="order_confirmed_msg">تم استلام طلبك بنجاح، وسنتواصل معك قريبًا لتأكيد الطلب.</p>
+      <div class="order-number-box">
+        <span data-i18n="order_number">رقم الطلب</span>: <strong id="confirmed-order-number">#MES-0001</strong>
+      </div>
+      <button id="continue-shopping-btn" class="btn btn-primary" data-i18n="continue_shopping_btn">متابعة التسوق</button>
+    </div>
+  </main>
+
+  <!-- Product Modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close" data-i18n-attr="aria-label:close">&times;</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3 data-i18n="cart_title">سلة التسوق</h3>
+      <button id="close-cart-btn" class="close-btn" aria-label="Close" data-i18n-attr="aria-label:close">&times;</button>
+    </div>
+    <div id="cart-items-container" class="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-summary-totals">
+        <div class="summary-row">
+          <span data-i18n="subtotal">المجموع الفرعي</span>
+          <span id="cart-subtotal">0 ج</span>
+        </div>
+        <div class="summary-row discount-row" id="cart-discount-row" style="display:none;">
+          <span data-i18n="discount">الخصم</span>
+          <span id="cart-discount">0 ج</span>
+        </div>
+        <div class="summary-row total-row">
+          <span data-i18n="total">الإجمالي</span>
+          <span id="cart-total">0 ج</span>
+        </div>
+      </div>
+      <button id="checkout-btn" class="btn btn-primary btn-block" data-i18n="checkout" disabled>إتمام الشراء</button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay"></div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/201000000000" id="whatsapp-btn" class="whatsapp-float" target="_blank" rel="noopener noreferrer" data-i18n-attr="title:whatsapp_tooltip">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M12.01 2.01c-5.5 0-9.98 4.48-9.98 9.98 0 1.76.46 3.42 1.28 4.86l-1.39 5.09 5.22-1.37c1.41.77 3.03 1.2 4.74 1.2 5.5 0 9.98-4.48 9.98-9.98s-4.48-9.98-9.98-9.98zm5.55 14.15c-.23.64-1.33 1.24-1.84 1.33-.48.09-1.12.15-3.32-.76-2.66-1.1-4.38-3.81-4.51-3.99-.14-.18-1.07-1.42-1.07-2.71 0-1.29.67-1.92.91-2.18.23-.25.51-.31.68-.31.17 0 .34 0 .48.02.16.02.37-.06.58.44.22.52.71 1.73.77 1.86.06.13.1.28.02.46-.08.18-.13.29-.25.43-.13.14-.27.31-.38.42-.13.12-.27.26-.12.52.14.26.63 1.06 1.36 1.7.94.82 1.72 1.07 1.98 1.2.26.13.42.1.58-.08.16-.18.69-.8 87-1.08.18-.28.36-.23.6-.14.24.09 1.51.71 1.77.84.26.13.43.2.5.31.06.11.06.65-.17 1.29z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-col brand-col">
+        <img src="/assets/logo.jpg" alt="Manar Elhady Store" class="footer-logo">
+        <p data-i18n="footer_desc">منتجات طبيعية أصيلة للعناية بالشعر والبشرة والجسم</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_categories">الفئات</h4>
+        <ul class="footer-links">
+          <li><a href="#products-section" class="footer-cat-link" data-category="all" data-i18n="cat_all">الكل</a></li>
+          <li><a href="#products-section" class="footer-cat-link" data-category="hair" data-i18n="cat_hair">الشعر</a></li>
+          <li><a href="#products-section" class="footer-cat-link" data-category="skin" data-i18n="cat_skin">البشرة</a></li>
+          <li><a href="#products-section" class="footer-cat-link" data-category="body" data-i18n="cat_body">الجسم</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact">تواصل معنا</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/201000000000" id="footer-wa-link" target="_blank" data-i18n="footer_whatsapp">واتساب</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Manar Elhady Store. <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
+    </div>
+  </footer>
+
+  <script src="/js/i18n.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

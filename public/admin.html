@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - منار الهادي ستور</title>
+  
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <div id="login-page" class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="/assets/logo.jpg" alt="Manar Elhady Store" class="login-logo logo-sync">
+        <h2 data-i18n="login_title">لوحة التحكم</h2>
+      </div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">البريد الإلكتروني أو اسم المستخدم</label>
+          <input type="text" id="login-email" required placeholder="admin@manar-store.com">
+        </div>
+        <div class="form-group">
+          <label for="login-password">كلمة المرور / Password</label>
+          <input type="password" id="login-password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="login-btn" data-i18n="login_btn">تسجيل الدخول</button>
+        <p class="login-error" id="login-error"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN APP -->
+  <div id="admin-app" class="admin-layout" style="display: none;">
+    <!-- Sidebar Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="/assets/logo.jpg" alt="Manar Elhady Store" class="sidebar-logo logo-sync">
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-page="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span data-i18n="nav_dashboard">لوحة التحكم</span>
+        </a>
+        <a href="#" class="nav-item" data-page="products">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span data-i18n="nav_products">المنتجات</span>
+        </a>
+        <a href="#" class="nav-item" data-page="orders">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span data-i18n="nav_orders">الطلبات</span>
+          <span class="badge badge-new" id="new-orders-badge" style="display: none;">0</span>
+        </a>
+        <a href="#" class="nav-item" data-page="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span data-i18n="nav_settings">الإعدادات</span>
+        </a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <button class="btn btn-logout" id="logout-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span data-i18n="nav_logout">تسجيل خروج</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+          <h2 class="page-title" id="page-title" data-i18n="nav_dashboard">لوحة التحكم</h2>
+        </div>
+        <div class="topbar-right">
+          <button class="lang-toggle" id="admin-lang-toggle">English</button>
+          <div class="admin-profile">
+            <span class="admin-email" id="admin-email-display">admin@manar-store.com</span>
+            <div class="avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-container">
+        <!-- DASHBOARD PAGE -->
+        <section id="page-dashboard" class="page active">
+          <div class="stats-grid">
+            <!-- 1. Total Orders -->
+            <div class="stat-card clickable" id="card-total-orders" title="عرض جميع الطلبات / View all orders">
+              <div class="stat-icon bg-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <div class="stat-details">
+                <p class="stat-title" data-i18n="stat_total_orders">إجمالي الطلبات</p>
+                <h3 class="stat-value" id="stat-total-orders">0</h3>
+                <span class="stat-link-hint">عرض التفاصيل ←</span>
+              </div>
+            </div>
+
+            <!-- 2. New Orders -->
+            <div class="stat-card clickable" id="card-new-orders" title="عرض الطلبات الجديدة / View new orders">
+              <div class="stat-icon bg-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div class="stat-details">
+                <p class="stat-title" data-i18n="stat_new_orders">طلبات جديدة</p>
+                <h3 class="stat-value" id="stat-new-orders">0</h3>
+                <span class="stat-link-hint">تصفية الطلبات الجديدة ←</span>
+              </div>
+            </div>
+
+            <!-- 3. Total Sales -->
+            <div class="stat-card clickable" id="card-total-sales" title="عرض المبيعات والطلبات / View sales">
+              <div class="stat-icon bg-success">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <div class="stat-details">
+                <p class="stat-title" data-i18n="stat_total_sales">إجمالي المبيعات</p>
+                <h3 class="stat-value" id="stat-total-sales">0.00 ج</h3>
+                <span class="stat-link-hint">سجل الطلبات ←</span>
+              </div>
+            </div>
+
+            <!-- 4. Total Products -->
+            <div class="stat-card clickable" id="card-total-products" title="عرض جميع المنتجات / View all products">
+              <div class="stat-icon bg-accent">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 2 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 20 16z"></path></svg>
+              </div>
+              <div class="stat-details">
+                <p class="stat-title" data-i18n="stat_total_products">إجمالي المنتجات</p>
+                <h3 class="stat-value" id="stat-total-products">0</h3>
+                <span class="stat-link-hint">إدارة المنتجات ←</span>
+              </div>
+            </div>
+
+            <!-- 5. Out of Stock -->
+            <div class="stat-card clickable" id="card-out-of-stock" title="عرض المنتجات المنتهية / View out of stock">
+              <div class="stat-icon bg-danger">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+              <div class="stat-details">
+                <p class="stat-title" data-i18n="stat_out_of_stock">نفد المخزون</p>
+                <h3 class="stat-value" id="stat-out-of-stock">0</h3>
+                <span class="stat-link-hint">تصفية المنتجات المنتهية ←</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-section">
+            <h3 class="section-title" data-i18n="recent_orders">أحدث الطلبات</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th data-i18n="col_order_num">رقم الطلب</th>
+                    <th data-i18n="col_customer">العميل</th>
+                    <th data-i18n="col_total">الإجمالي</th>
+                    <th data-i18n="col_status">الحالة</th>
+                    <th data-i18n="col_date">التاريخ</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-orders-tbody">
+                  <!-- Generated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- PRODUCTS PAGE -->
+        <section id="page-products" class="page">
+          <div class="page-header">
+            <div class="page-header-title-wrap">
+              <h3 data-i18n="nav_products">المنتجات</h3>
+              <div class="products-filter-pills">
+                <button class="filter-pill active" id="prod-filter-all">جميع المنتجات</button>
+                <button class="filter-pill" id="prod-filter-out">المنتجات المنتهية (0 مخزون)</button>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="btn-add-product">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span data-i18n="btn_add_product">إضافة منتج</span>
+            </button>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>صورة</th>
+                  <th data-i18n="col_product_name">اسم المنتج</th>
+                  <th data-i18n="col_category">القسم</th>
+                  <th data-i18n="col_price">السعر</th>
+                  <th data-i18n="col_discount">الخصم</th>
+                  <th data-i18n="col_stock">المخزون</th>
+                  <th data-i18n="col_actions">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="products-tbody">
+                <!-- Generated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ORDERS PAGE -->
+        <section id="page-orders" class="page">
+          <div class="page-header">
+            <h3 data-i18n="nav_orders">الطلبات</h3>
+          </div>
+          
+          <!-- Status Filter Tabs -->
+          <div class="status-filters" id="orders-filters">
+            <button class="filter-btn active" data-status="" data-i18n="status_all">الكل</button>
+            <button class="filter-btn" data-status="new" data-i18n="status_new">جديد</button>
+            <button class="filter-btn" data-status="confirmed" data-i18n="status_confirmed">تأكيد</button>
+            <button class="filter-btn" data-status="preparing" data-i18n="status_preparing">تجهيز</button>
+            <button class="filter-btn" data-status="shipped" data-i18n="status_shipped">شحن</button>
+            <button class="filter-btn" data-status="delivered" data-i18n="status_delivered">تسليم</button>
+            <button class="filter-btn" data-status="cancelled" data-i18n="status_cancelled">ملغي</button>
+          </div>
+
+          <div class="orders-list" id="orders-list">
+            <!-- Generated dynamically -->
+          </div>
+        </section>
+
+        <!-- SETTINGS PAGE -->
+        <section id="page-settings" class="page">
+          <div class="page-header">
+            <h3 data-i18n="nav_settings">الإعدادات</h3>
+          </div>
+          
+          <div class="settings-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            <!-- Settings Card 1: Login Credentials -->
+            <div class="settings-card" style="background: var(--surface); padding: 28px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span data-i18n="settings_credentials_title">بيانات تسجيل الدخول</span>
+              </h4>
+              
+              <form id="settings-profile-form">
+                <div class="form-group">
+                  <label data-i18n="label_username">اسم المستخدم / Username</label>
+                  <input type="text" id="settings-username" required placeholder="admin">
+                </div>
+                
+                <div class="form-group">
+                  <label data-i18n="label_email">البريد الإلكتروني / Email</label>
+                  <input type="email" id="settings-email" required placeholder="admin@manar-store.com">
+                </div>
+
+                <div class="form-group" style="margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--border);">
+                  <label data-i18n="label_current_password">كلمة المرور الحالية <span class="required">* (مطلوبة لحفظ التغييرات)</span></label>
+                  <input type="password" id="settings-current-password" required placeholder="••••••••">
+                </div>
+
+                <div class="form-group">
+                  <label data-i18n="label_new_password">كلمة المرور الجديدة (اختياري)</label>
+                  <input type="password" id="settings-new-password" placeholder="اتركها فارغة إذا لم ترغب بالتغيير">
+                </div>
+
+                <div class="form-group">
+                  <label data-i18n="label_confirm_password">تأكيد كلمة المرور الجديدة</label>
+                  <input type="password" id="settings-confirm-password" placeholder="أعد كتابة كلمة المرور الجديدة">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="btn-save-settings" data-i18n="btn_save_settings" style="margin-top: 16px;">حفظ بيانات الدخول</button>
+              </form>
+            </div>
+
+            <!-- Settings Card 2: Logo Upload -->
+            <div class="settings-card" style="background: var(--surface); padding: 28px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span data-i18n="settings_logo_title">شعار المتجر (Logo)</span>
+              </h4>
+
+              <div class="current-logo-preview" style="text-align: center; margin-bottom: 20px; padding: 16px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">الشعار الحالي في الموقع ولوحة التحكم:</p>
+                <img src="/assets/logo.jpg" alt="Current Logo" id="settings-logo-preview" class="logo-sync" style="max-height: 80px; width: auto; object-fit: contain;">
+              </div>
+
+              <form id="settings-logo-form">
+                <div class="form-group">
+                  <label data-i18n="label_upload_logo">رفع شعار جديد</label>
+                  <input type="file" id="settings-logo-input" accept="image/*" required>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">سيتم تحديث الشعار مباشرة في المتجر ولوحة التحكم مع الحفاظ على أبعاده الطبيعية.</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="btn-save-logo" data-i18n="btn_save_logo">تحديث الشعار</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- PRODUCT MODAL (ADD / EDIT) -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="product-modal-title" data-i18n="modal_add_product">إضافة منتج جديد</h3>
+        <button class="modal-close" id="product-modal-close" type="button">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="product-form">
+          <input type="hidden" id="product-id">
+          
+          <div class="form-group">
+            <label data-i18n="label_name">اسم المنتج <span class="required">*</span></label>
+            <input type="text" id="product-name" required placeholder="مثال: زيت بنت المغرب">
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="label_desc">الوصف (اختياري)</label>
+            <textarea id="product-desc" rows="3" placeholder="أدخل وصفاً للمنتج..."></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="label_price">السعر (ج.م) <span class="required">*</span></label>
+              <input type="number" id="product-price" step="0.01" min="0" required placeholder="250">
+            </div>
+            <div class="form-group">
+              <label data-i18n="label_discount">قيمة الخصم (ج.م) - اختياري</label>
+              <input type="number" id="product-discount" step="0.01" min="0" placeholder="0">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="label_category">القسم <span class="required">*</span></label>
+              <select id="product-category" required>
+                <option value="hair" data-i18n="cat_hair">شعر</option>
+                <option value="skin" data-i18n="cat_skin">بشرة</option>
+                <option value="body" data-i18n="cat_body">جسم</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="label_stock">المخزون <span class="required">*</span></label>
+              <input type="number" id="product-stock" step="1" min="0" required placeholder="20" value="20">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="label_image">صورة المنتج <span class="required" id="image-required-star">*</span></label>
+            <div class="file-upload">
+              <input type="file" id="product-image" accept="image/*">
+              <div class="image-preview" id="image-preview"></div>
+            </div>
+          </div>
+          
+          <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" id="product-modal-cancel" data-i18n="btn_cancel">إلغاء</button>
+            <button type="submit" class="btn btn-primary" id="product-btn-save" data-i18n="btn_save">حفظ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRM MODAL -->
+  <div class="modal-overlay" id="delete-modal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h3 data-i18n="modal_delete_title">تأكيد الحذف</h3>
+        <button class="modal-close" id="delete-modal-close" type="button">✕</button>
+      </div>
+      <div class="modal-body">
+        <p data-i18n="modal_delete_msg">هل أنت متأكد من حذف هذا المنتج؟ لا يمكن التراجع عن هذا الإجراء.</p>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="delete-modal-cancel" data-i18n="btn_cancel">إلغاء</button>
+          <button type="button" class="btn btn-danger" id="delete-btn-confirm" data-i18n="btn_delete">حذف</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
